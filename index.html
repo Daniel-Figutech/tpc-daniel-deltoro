@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TPC Daniel Del Toro — Calendario</title>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, sans-serif;
+      background: #0a0a0a;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 32px;
+      border-bottom: 1px solid #1f1f1f;
+      background: #0a0a0a;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-dot {
+      width: 10px;
+      height: 10px;
+      background: #a855f7;
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    .brand-name {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -0.4px;
+      color: #fff;
+    }
+
+    .brand-name span { color: #a855f7; }
+
+    .badge {
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      color: #888;
+      font-size: 12px;
+      font-weight: 500;
+      padding: 5px 14px;
+      border-radius: 100px;
+      letter-spacing: 0.3px;
+    }
+
+    .legend {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 14px 32px;
+      background: #0f0f0f;
+      border-bottom: 1px solid #1a1a1a;
+      overflow-x: auto;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      font-size: 13px;
+      color: #888;
+    }
+
+    .legend-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .dot-upload  { background: #4285f4; }
+    .dot-record  { background: #ea4335; }
+
+    .calendar-container {
+      flex: 1;
+      padding: 24px 32px;
+    }
+
+    .calendar-container iframe {
+      width: 100%;
+      height: calc(100vh - 180px);
+      min-height: 500px;
+      border: none;
+      border-radius: 14px;
+      background: #fff;
+      display: block;
+    }
+
+    footer {
+      text-align: center;
+      padding: 14px 32px;
+      color: #333;
+      font-size: 12px;
+      border-top: 1px solid #1a1a1a;
+    }
+
+    @media (max-width: 600px) {
+      header { padding: 16px 20px; }
+      .legend { padding: 12px 20px; }
+      .calendar-container { padding: 16px 20px; }
+      .calendar-container iframe { height: calc(100vh - 200px); border-radius: 10px; }
+      footer { padding: 12px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      <div class="brand-dot"></div>
+      <div class="brand-name">TPC <span>Daniel Del Toro</span></div>
+    </div>
+    <div class="badge">Calendario de contenido</div>
+  </header>
+
+  <div class="legend">
+    <div class="legend-item">
+      <div class="legend-dot dot-upload"></div>
+      Subida de vídeo
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot dot-record"></div>
+      Día de grabación
+    </div>
+  </div>
+
+  <div class="calendar-container">
+    <iframe
+      src="https://calendar.google.com/calendar/embed?src=39ee63d5fdce8964a87c2dcb560e9040034c7ea40d44bfe53db3ca3f00e1605b%40group.calendar.google.com&ctz=Europe%2FMadrid&hl=es&mode=WEEK&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=1&showCalendars=0&showTz=0"
+      frameborder="0"
+      scrolling="no"
+      title="Calendario TPC Daniel Del Toro">
+    </iframe>
+  </div>
+
+  <footer>Uso interno · TPC Daniel Del Toro</footer>
+
+</body>
+</html>
